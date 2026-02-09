@@ -5,3 +5,13 @@ services:
       dockerfile: backend/src/main/docker/Dockerfile.jvm
     ports:
       - "8080:8080"
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend

@@ -1,0 +1,10 @@
+<div class="container py-5">
+  <h3 class="mb-3">Labseq</h3>
+
+  <div class="input-group mb-3">
+    <input class="form-control" [(ngModel)]="n" placeholder="Enter n">
+    <button class="btn btn-primary" (click)="submit()">Submit</button>
+  </div>
+
+  <pre class="bg-white p-3 border rounded">{{ result }}</pre>
+</div>
