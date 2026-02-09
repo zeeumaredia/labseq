@@ -21,4 +21,9 @@ class LabseqResourceTest {
     void negativeIsBadRequest() {
         given().when().get("/labseq/-1").then().statusCode(400);
     }
+
+    @Test
+    void tooLargeIsRejected() {
+        given().when().get("/labseq/200001").then().statusCode(413);
+    }
 }

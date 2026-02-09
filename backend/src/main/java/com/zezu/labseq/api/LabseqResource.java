@@ -1,6 +1,7 @@
 package com.zezu.labseq.api;
 
 import com.zezu.labseq.api.dto.LabseqResponse;
+import com.zezu.labseq.exception.InvalidNumberException;
 import com.zezu.labseq.service.LabseqService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.BadRequestException;
@@ -19,11 +20,7 @@ public class LabseqResource {
 
     @GET
     @Path("/{n}")
-    public LabseqResponse get(@PathParam("n") long n) {
-        if (n < 0) {
-            throw new BadRequestException("Imput number non-negative Integer.");
-        }
-        
+    public LabseqResponse get(@PathParam("n") long n){
         return new LabseqResponse(n, service.valueAt(n).toString());
     }
 }
