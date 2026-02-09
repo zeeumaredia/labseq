@@ -1,0 +1,24 @@
+# ---- Build stage ----
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /workspace
+
+# Copy the parent pom first (best for Docker cache)
+COPY pom.xml .
+
+# Copy module poms (so Maven can resolve the reactor)
+COPY backend/pom.xml backend/pom.xml
+COPY frontend/pom.xml frontend/pom.xml
+
+# Copy backend sources
+COPY backend/src backend/src
+
+# Build only backend (and any required modules)
+RUN mvn -B -DskipTests clean package -pl backend -am
+
+# ---- Run stage ----
+FROM eclipse-temurin:21-jre
+WORKDIR /work
+
+COPY --from=build /workspace/backend/target/quarkus-app/ /work/quarkus-app/
+EXPOSE 8080
+CMD ["java","-jar","/work/quarkus-app/quarkus-run.jar"]
