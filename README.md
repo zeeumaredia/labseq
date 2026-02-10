@@ -63,11 +63,6 @@ The application exposes a REST API to compute Labseq values and a web UI to inte
   ```
   http://localhost:8080/q/swagger-ui
   ```
-- OpenAPI spec:
-  ```
-  http://localhost:8080/q/openapi
-  ```
-
 ---
 
 ## Run with Docker (Recommended)
