@@ -19,7 +19,7 @@ export class AppComponent {
   submit() {
     this.result = '';
     this.api.getValue(this.n).subscribe({
-      next: (r) => (this.result = JSON.stringify(r, null, 2)),
+      next: (r) => (this.result = r.value),
       error: (e) => (this.result = `Error: ${e?.error?.message ?? e?.message ?? 'Request failed'}`)
     });
   }

@@ -1,3 +1,21 @@
-pre {
-  min-height: 200px;
+.result-container {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  padding: 12px;
+}
+
+.result-box {
+  margin: 0;
+  max-height: 300px;          /* vertical scroll only */
+  overflow-y: auto;
+  overflow-x: hidden;         /* kill horizontal scroll */
+
+  white-space: pre-wrap;      /* wrap long text */
+  word-break: break-all;      /* break huge numbers */
+  overflow-wrap: anywhere;    /* modern browsers */
+
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
