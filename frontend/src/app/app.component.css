@@ -5,17 +5,27 @@
   padding: 12px;
 }
 
+/* Editor-style output box */
 .result-box {
   margin: 0;
-  max-height: 300px;          /* vertical scroll only */
+
+  /* Fixed default height – never collapses */
+  min-height: 220px;
+  max-height: 500px;
+
+  /* Scrolling behavior */
   overflow-y: auto;
-  overflow-x: hidden;         /* kill horizontal scroll */
+  overflow-x: hidden;
 
-  white-space: pre-wrap;      /* wrap long text */
-  word-break: break-all;      /* break huge numbers */
-  overflow-wrap: anywhere;    /* modern browsers */
+  /* Wrapping long numbers */
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 
-  font-family: monospace;
+  /* Editor look */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.9rem;
-  line-height: 1.4;
+  line-height: 1.45;
+
+  background-color: #ffffff;
 }
